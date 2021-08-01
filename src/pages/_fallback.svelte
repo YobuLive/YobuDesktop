@@ -6,7 +6,7 @@
   <div class="main-div">
     <span class="title-span">Error 404</span>
     <span> This page doesn't exist at the moment :(</span>
-    <a class="click-span" href={$url('/')}>Click here to go back.</a>
+    <a class="click-span" href={$url('/home')}>Click here to go back.</a>
   </div>
 </main>
 
