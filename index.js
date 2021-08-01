@@ -12,10 +12,14 @@ function isDev() {
   return !app.isPackaged;
 }
 
+const _iconPath = process.platform !== 'darwin' ? 'public/icon.ico' : 'public/favicon.icns';
+
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
+    minWidth: 800,
+    minHeight: 600,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
@@ -23,7 +27,7 @@ function createWindow() {
       // contextIsolation: false
     },
     // Use this in development mode.
-    icon: isDev() ? path.join(process.cwd(), 'public/favicon.png') : path.join(__dirname, 'public/favicon.png'),
+    icon: isDev() ? path.join(process.cwd(), 'public/icon.png') : path.join(__dirname, 'public/icon.png'),
     // Use this in production mode.
     // icon: path.join(__dirname, 'public/favicon.png'),
     show: false,
@@ -32,7 +36,7 @@ function createWindow() {
   // This block of code is intended for development purpose only.
   // Delete this entire block of code when you are ready to package the application.
   if (isDev()) {
-    mainWindow.loadURL('http://localhost:5000/');
+    mainWindow.loadURL('http://localhost:4000/');
   } else {
     loadURL(mainWindow);
   }
